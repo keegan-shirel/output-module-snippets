@@ -1,0 +1,417 @@
+{
+    /* 
+    Structural snippets
+    */
+    "AND Filter": {
+        "prefix": "filter-and",
+        "body": [
+            "\"Filter\": {",
+            "\t\"AND\": [",
+            "\t\t{\"Field\": {\"name\": \"$1\", \"operator\": \"${2|EQUALS,NOT_EQUALS,STARTS_WITH,NOT_STARTS_WITH,STARTS_WITH_DIGIT,ENDS_WITH,NOT_ENDS_WITH,INCLUDES,NOT_INCLUDES,LESS,GREATER,LESS_OR_EQUALS,GREATER_OR_EQUALS,BETWEEN,NULL,NOT_NULL,IN,NOT_IN,EXISTS,NOT_EXISTS|}\", ${3|\"value\": \"\",\"values\": []|}}}",
+            "\t]",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Asset": {
+        "prefix": ["asset", "source-asset", "target-asset"],
+        "body": [
+            "\"${1|Asset,SourceAsset,TargetAsset|}\": {",
+            "\t\"Id\": {\"name\": \"${2:assetId}\"},",
+            "\t\"signifier\": {\"name\": \"${3:assetFullName}\"},",
+            "\t\"displayName\": {\"name\": \"${4:assetDisplayName}\"},",
+            "\t$5",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Asset Relation": {
+        "prefix": "relation-asset",
+        "body": [
+            "\"Relation\": [",
+            "\t{",
+            "\t\t\"typeId\": \"$1\",",
+            "\t\t\"type\": \"${2|SOURCE,TARGET|}\",",
+            "\t\t$3",
+            "\t}",
+            "]"
+        ],
+        "description": "A relation object where the parent node is an asset.",
+        "scope": "json"
+    },
+    "Asset Type": {
+        "prefix": ["asset-type", "source-asset-type", "target-asset-type"],
+        "body": [
+            "\"${1|AssetType,SourceAssetType,TargetAssetType|}\": {",
+            "\t\"Id\": {\"name\": \"${2:assetTypeId}\"},",
+            "\t\"Name\": {\"name\": \"${3:assetTypeName}\"},",
+            "\t\"description\": {\"name\": \"${4:assetTypeDesc}\"},",
+            "\t\"color\": {\"name\": \"${5:assetTypeColor}\"},",
+            "\t\"icon\": {\"name\": \"${6:assetTypeIcon}\"},",
+            "\t\"acronym\": {\"name\": \"${7:assetTypeAcronym}\"}",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Attribute": {
+        "prefix": "attribute",
+        "body": [
+            "\"Attribute\": {",
+            "\t\"labelId\": \"$1\",",
+            "\t\"value\": {\"name\": \"${2:attrVal}\"}",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Attribute Type": {
+        "prefix": "attribute-type",
+        "body": [
+            "\"AttributeType\": {",
+            "\t\"Id\": {\"name\": \"${1:attributeTypeId}\"},",
+            "\t\"Name\": {\"name\": \"${2:attributeTypeName}\"},",
+            "\t\"description\": {\"name\": \"${3:attributeTypeDesc}\"},",
+            "\t\"attributeKind\": {\"name\": \"${4:attributeTypeKind}\"}",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Boolean Attribute": {
+        "prefix": "attribute-boolean",
+        "body": [
+            "\"BooleanAttribute\": {",
+            "\t\"labelId\": \"$1\",",
+            "\t\"booleanValue\": {\"name\": \"${2:booleanAttrVal}\"}",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Column": {
+        "prefix": ["column", "tvc-column", "table-view-config-column"],
+        "body": [
+            "{\"Column\": {\"fieldName\": \"$1\"}}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Comment": {
+        "prefix": ["comment", "parent-comment"],
+        "body": [
+            "\"${1|Comment,ParentComment|}\": {",
+            "\t\"content\": {\"name\": \"${2:commentContent}\"}",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Community": {
+        "prefix": ["community", "parent-community"],
+        "body": [
+            "\"${1|Community,ParentCommunity|}\": {",
+            "\t\"Id\": {\"name\": \"${2:communityId}\"},",
+            "\t\"Name\": {\"name\": \"${3:communityName}\"}",
+            "}"
+        ],
+        "description": "",
+        "scope": ""
+    },
+    "Created": {
+        "prefix": ["created", "created-on", "created-by"],
+        "body": [
+            "\"createdOn\": {\"name\": \"${1:createdOn}\"},",
+            "\"createdBy\": {\"name\": \"${2:createdBy}\"}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Date Attribute": {
+        "prefix": "attribute-date",
+        "body": [
+            "\"DateAttribute\": {",
+            "\t\"labelId\": \"$1\",",
+            "\t\"date\": {\"name\": \"${2:dateAttrVal}\"},",
+            "\t\"timestamp\": {\"name\": \"${2:dateAttrTimestampVal}\"}",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Date Time Attribute": {
+        "prefix": "attribute-date-time",
+        "body": [
+            "\"DateTimeAttribute\": {",
+            "\t\"labelId\": \"$1\",",
+            "\t\"dateTime\": {\"name\": \"${2:dateTimeAttrVal}\"}",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Domain": {
+        "prefix": "domain",
+        "body": [
+            "\"Domain\": {",
+            "\t\"Id\": {\"name\": \"${1:domainId}\"},",
+            "\t\"Name\": {\"name\": \"${2:domainName}\"}",
+            "}"
+        ],
+        "description": "",
+        "scope": ""
+    },
+    "Domain Type": {
+        "prefix": "domain-type",
+        "body": [
+            "\"DomainType\": {",
+            "\t\"Id\": {\"name\": \"${1:domainTypeId}\"},",
+            "\t\"Name\": {\"name\": \"${2:domainTypeName}\"}",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Filter": {
+        "prefix": "filter",
+        "body": [
+            "\"Filter\": {\"Field\": {\"name\": \"$1\", \"operator\": \"${2|EQUALS,NOT_EQUALS,STARTS_WITH,NOT_STARTS_WITH,STARTS_WITH_DIGIT,ENDS_WITH,NOT_ENDS_WITH,INCLUDES,NOT_INCLUDES,LESS,GREATER,LESS_OR_EQUALS,GREATER_OR_EQUALS,BETWEEN,NULL,NOT_NULL,IN,NOT_IN,EXISTS,NOT_EXISTS|}\", ${3|\"value\": \"\",\"values\": []|}}}"
+        ],
+        "description": "Simple filter with single condition.",
+        "scope": "json"
+    },
+    "Filter Field": {
+        "prefix": "filter-field",
+        "body": "{\"Field\": {\"name\": \"$1\", \"operator\": \"${2|EQUALS,NOT_EQUALS,STARTS_WITH,NOT_STARTS_WITH,STARTS_WITH_DIGIT,ENDS_WITH,NOT_ENDS_WITH,INCLUDES,NOT_INCLUDES,LESS,GREATER,LESS_OR_EQUALS,GREATER_OR_EQUALS,BETWEEN,NULL,NOT_NULL,IN,NOT_IN,EXISTS,NOT_EXISTS|}\", ${3|\"value\": \"\",\"values\": []|}}}",
+        "description": "",
+        "scope": ""
+    },
+    "Group": {
+        "prefix": ["group", "user-group"],
+        "body": [
+            "\"Group\": {",
+            "\t\"Id\": {\"name\": \"${1:groupId}\"},",
+            "\t\"groupName\": {\"name\": \"${2:groupName}\"}",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Modified": {
+        "prefix": ["modified", "modified-on", "modified-by"],
+        "body": [
+            "\"modifiedOn\": {\"name\": \"${1:modifiedOn}\"},",
+            "\"modifiedBy\": {\"name\": \"${2:modifiedBy}\"}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Multi Value Attribute": {
+        "prefix": "attribute-multi-value",
+        "body": [
+            "\"MultiValueAttribute\": {",
+            "\t\"labelId\": \"$1\",",
+            "\t\"values\": {\"name\": \"${2:attrVals}\"}",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Numeric Attribute": {
+        "prefix": "attribute-numeric",
+        "body": [
+            "\"NumbericAttribute\": {",
+            "\t\"labelId\": \"$1\",",
+            "\t\"numericValue\": {\"name\": \"${2:numericAttrVal}\"}",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "OR Filter": {
+        "prefix": "filter-or",
+        "body": [
+            "\"Filter\": {",
+            "\t\"OR\": [",
+            "\t\t{\"Field\": {\"name\": \"$1\", \"operator\": \"${2|EQUALS,NOT_EQUALS,STARTS_WITH,NOT_STARTS_WITH,STARTS_WITH_DIGIT,ENDS_WITH,NOT_ENDS_WITH,INCLUDES,NOT_INCLUDES,LESS,GREATER,LESS_OR_EQUALS,GREATER_OR_EQUALS,BETWEEN,NULL,NOT_NULL,IN,NOT_IN,EXISTS,NOT_EXISTS|}\", ${3|\"value\": \"\",\"values\": []|}}}",
+            "\t]",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Order": {
+        "prefix": "order",
+        "body": [
+            "\"Order\": [",
+            "\t{\"Field\": {\"name\": \"$1\", \"order\": \"${2|ASC,DESC|}\"}}",
+            "]"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Paging": {
+        "prefix": "paging",
+        "body": [
+            "\"displayStart\": ${1:0},",
+            "\"displayLength\": ${2:50},",
+            "\"maxCountLimit\": ${3:0}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Relation": {
+        "prefix": "relation",
+        "body": [
+            "\"Relation\": {",
+                "\t\"RelationType\": {",
+                "\t\t\"Id\": {\"name\": \"${1:relationTypeId}\"},",
+                "\t\t\"role\": {\"name\": \"${2:role}\"},", 
+                "\t\t\"corole\": {\"name\": \"${3:corole}\"},", 
+                "\t\t\"description\": {\"name\": \"${4:relationTypeDesc}\"}",
+                "\t},",
+                "\t\"SourceAssetType\": {",
+                "\t\t\"Id\": {\"name\": \"${5:sourceAssetTypeId}\"},",
+                "\t\t\"Name\": {\"name\": \"${6:sourceAssetTypeName}\"}",
+                "\t},",
+                "\t\"TargetAssetType\": {",
+                "\t\t\"Id\": {\"name\": \"${7:targetAssetTypeId}\"},",
+                "\t\t\"Name\": {\"name\": \"${8:targetAssetTypeName}\"}",
+                "\t}", 
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Relation Object": {
+        "prefix": "relation-object",
+        "body": [
+            "{",
+            "\t\"typeId\": \"$1\",",
+            "\t\"type\": \"${2|SOURCE,TARGET|}\",",
+            "\t$3",
+            "}"
+
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Relation Type": {
+        "prefix": "relation-type",
+        "body": [
+            "\"RelationType\": {",
+            "\t\"Id\": {\"name\": \"${1:relationTypeId}\"},",
+            "\t\"role\": {\"name\": \"${2:role}\"},", 
+            "\t\"corole\": {\"name\": \"${3:corole}\"},", 
+            "\t\"description\": {\"name\": \"${4:relationTypeDesc}\"}",
+            "}" 
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Responsibility": {
+        "prefix": "responsibility",
+        "body": [
+            "\"Responsibility\": [",
+            "\t{",
+            "\t\t\"roleId\": \"$1\",",
+            "\t\t$2",
+            "\t}",
+            "]"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Role": {
+        "prefix": "role",
+        "body": [
+            "\"Role\": {",
+            "\t\"Id\": {\"name\": \"${1:roleId}\"},",
+            "\t\"Signifier\": {\"name\": \"${2:roleName}\"}",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Status": {
+        "prefix": "status",
+        "body": [
+            "\"Status\": {",
+            "\t\"Id\": {\"name\": \"${1:statusId}\"},",
+            "\t\"signifier\": {\"name\": \"${2:statusName}\"}",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Table View Config": {
+        "prefix": ["tvc", "table-view-config"],
+        "body": [
+            "{",
+            "\t\"TableViewConfig\": {",
+            "\t\t\"Resources\": {",
+            "\t\t\t$1",
+            "\t\t},",
+            "\t\t\"Columns\": [",
+            "\t\t\t{\"Column\": {\"fieldName\": \"\"}}",
+            "\t\t]",
+            "\t}",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "Tag": {
+        "prefix": "tag",
+        "body": [
+            "\"Tag\": {",
+            "\t\"Name\": {\"name\": \"${1:tagName}\"},",
+            "\t\"assetsCount\": {\"name\": \"${2:tagAssetCount}\"}",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "User": {
+        "prefix": "user",
+        "body": [
+            "\"User\": {",
+            "\t\"linkType\": \"${1|CREATED,MODIFIED|}\",",
+            "\t\"Id\": {\"name\": \"${2:userId}\"},",
+            "\t\"userName\": {\"name\": \"${3:userName}\"},",
+            "\t\"firstName\": {\"name\": \"${4:firstName}\"},",
+            "\t\"lastName\": {\"name\": \"${5:lastName}\"},",
+            "\t\"fullName\": {\"name\": \"${6:fullName}\"},",
+            "\t\"emailAddress\": {\"name\": \"${7:emailAddress}\"}",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "View Config": {
+        "prefix": ["vc", "view-config"],
+        "body": [
+            "{",
+            "\t\"ViewConfig\": {",
+            "\t\t\"Resources\": {",
+            "\t\t\t$1",
+            "\t\t}",
+            "\t}",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    },
+    "View Permission": {
+        "prefix": "view-permission",
+        "body": [
+            "\"ViewPermission\": {",
+            "\t$1",
+            "}"
+        ],
+        "description": "",
+        "scope": "json"
+    }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "output-module-snippets",
+  "displayName": "Output Module Snippets",
+  "description": "Code snippets for the output module.",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.78.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "json",
+        "path": "./snippets/snippets.code-snippets"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keegan-shirel/output-module-snippets.git"
+  }
+}
