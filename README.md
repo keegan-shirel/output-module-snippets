@@ -6,13 +6,15 @@ Output-module-snippets is a small library with code snippets to save time and ef
 
 `code --install-extension output-module-snippets-1.0.0.vsix`
 
+![Installation](./images/install.gif)
+
 ## Basic Usage
 
 Start typing any of the snippet prefixes and automatically complete the Output Module statement. Start with either `tvc` or `vc`.
 
 Use tab to jump to snippet properties and update the default values. Some properties have multiple choices. The choices are represented as `{choice1|choice2}` in the examples below.
 
-![feature X](./images/basic-usage.gif)
+![Basic usage](./images/basic-usage.gif)
 
 ## Available snippets
 
